@@ -1,0 +1,39 @@
+.sideBar {
+    width: 20%;
+    border-right: 1px solid rgb(184, 184, 184);
+    padding-right: 20px;
+}   
+
+.filters-title {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.product-types-wrapper {
+    margin-top: 20px;
+}
+
+.product-types {
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.priceRange-input {
+    width: 100%;
+}
+
+.priceRange-values {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media only screen and (max-width: 992px) {
+    .product-types {
+        flex-direction: column;
+        
+    }
+}
