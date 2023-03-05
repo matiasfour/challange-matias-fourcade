@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './styles/app.css';
 import Products from './components/Products';
 import SideBar from './components/SideBar';
@@ -46,12 +46,12 @@ function App() {
       setFilteredProducts(productsWithVariants);
   };
   
-  const filterData = () => {
+  const filterData = useCallback(() => {
     if(filterTypes.length !== 0) {
       const filtered = products.filter((prod) => filterTypes[prod.product_type] === true && prod.price <= priceRange );
       setFilteredProducts(filtered);
     }
-  }
+  }, [filterTypes, priceRange, products])
 
   useEffect(() => {
     getData();
@@ -59,7 +59,7 @@ function App() {
 
   useEffect(() => {
     filterData();
-  }, [filterTypes, priceRange]);
+  }, [filterTypes, priceRange, filterData]);
 
 
   return (
